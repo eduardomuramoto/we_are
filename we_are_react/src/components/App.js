@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {HomePage} from './HomePage';
-// import {TravelIndexPage} from './TravelIndexPage';
 import {PersonProfileNewPage} from './PersonProfileNewPage';
-// import {TravelShowPage} from './TravelShowPage';
+import {PersonProfileUpdatePage} from './PersonProfileUpdatePage';
+import {CompanyProfileNewPage} from './CompanyProfileNewPage';
+import {CompanyProfileUpdatePage} from './CompanyProfileUpdatePage';
 import {SignInPage} from './SignInPage';
 import {SignUpPage} from './SignUpPage';
 import {NavBar} from './NavBar';
@@ -68,6 +69,21 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/person_profiles/new"
               component={PersonProfileNewPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/person_profiles/update"
+              component={PersonProfileUpdatePage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/company_profiles/new"
+              component={CompanyProfileNewPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/company_profiles/update"
+              component={CompanyProfileUpdatePage}
             />
 
 

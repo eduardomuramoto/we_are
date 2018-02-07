@@ -4,7 +4,7 @@ import { Input, Button } from 'reactstrap';
 
 function PersonProfileForm (props) {
   const {
-    person_profiles = {},
+    person_profile = {},
     onSubmit = () => {},
     onChange = () => {}
   } = props;
@@ -27,7 +27,7 @@ function PersonProfileForm (props) {
         <label htmlFor="first_name">First Name</label>
         <Input
             type="text"
-            value={person_profiles.first_name}
+            value={person_profile.first_name}
             placeholder="Enter your first name"
             onChange={handleChange("first_name")}
           />
@@ -37,7 +37,7 @@ function PersonProfileForm (props) {
         <label htmlFor="last_name">Last Name</label>
         <Input
             type="text"
-            value={person_profiles.last_name}
+            value={person_profile.last_name}
             placeholder="Enter your last name"
             onChange={handleChange("last_name")}
           />
@@ -47,7 +47,7 @@ function PersonProfileForm (props) {
         <label htmlFor="email">Email</label>
         <Input
             type="email"
-            value={person_profiles.email}
+            value={person_profile.email}
             placeholder="Enter your email"
             onChange={handleChange("email")}
           />
@@ -57,7 +57,7 @@ function PersonProfileForm (props) {
         <label htmlFor="address">Address</label>
         <Input
             type="text"
-            value={person_profiles.address}
+            value={person_profile.address}
             placeholder="Enter your address"
             onChange={handleChange("address")}
           />
@@ -67,7 +67,7 @@ function PersonProfileForm (props) {
         <label htmlFor="city">City</label>
         <Input
             type="text"
-            value={person_profiles.city}
+            value={person_profile.city}
             placeholder="Enter your city"
             onChange={handleChange("city")}
           />
@@ -77,7 +77,7 @@ function PersonProfileForm (props) {
       <label htmlFor="state">State</label>
         <Input
             type="text"
-            value={person_profiles.state}
+            value={person_profile.state}
             placeholder="Enter your state"
             onChange={handleChange("state")}
           />
@@ -87,7 +87,7 @@ function PersonProfileForm (props) {
       <label htmlFor="country">Country</label>
         <Input
             type="text"
-            value={person_profiles.country}
+            value={person_profile.country}
             placeholder="Enter your country"
             onChange={handleChange("country")}
           />
@@ -97,7 +97,7 @@ function PersonProfileForm (props) {
       <label htmlFor="job_title">Job Title</label>
         <Input
             type="text"
-            value={person_profiles.job_title}
+            value={person_profile.job_title}
             placeholder="Enter your job"
             onChange={handleChange("job_title")}
           />
@@ -107,7 +107,7 @@ function PersonProfileForm (props) {
         <label htmlFor="education">Education</label>
         <Input
             type="textarea"
-            value={person_profiles.education}
+            value={person_profile.education}
             placeholder="Enter your education"
             onChange={handleChange("education")}
           />
@@ -117,7 +117,7 @@ function PersonProfileForm (props) {
         <label htmlFor="experience">Experience</label>
         <Input
             type="textarea"
-            value={person_profiles.experience}
+            value={person_profile.experience}
             placeholder="Enter your experience"
             onChange={handleChange("experience")}
           />
@@ -127,7 +127,7 @@ function PersonProfileForm (props) {
         <label htmlFor="skills">Skills</label>
         <Input
             type="textarea"
-            value={person_profiles.skills}
+            value={person_profile.skills}
             placeholder="Enter your skills"
             onChange={handleChange("skills")}
           />
@@ -136,7 +136,7 @@ function PersonProfileForm (props) {
 
       <div>
         <br />
-        <Button type="submit" bsStyle="primary" value="Submit">Create Profile</Button>
+        <Button type="submit" bsStyle="primary" value="Submit">Submit</Button>
       </div>
     </form>
   );

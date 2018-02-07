@@ -8,11 +8,7 @@ class PersonProfileNewPage extends Component {
 
     this.state = {
       newPersonProfile: {
-        first_name: "",
-        last_name: "",
-        email: "",
-        password:"",
-        password_confirmation:""
+
       }
     };
 
@@ -48,7 +44,7 @@ class PersonProfileNewPage extends Component {
       >
         <h2>Create your personal profile</h2>
         <PersonProfileForm
-          product={newPersonProfile}
+          person_profile={newPersonProfile}
           onChange={this.updateNewPersonProfile}
           onSubmit={this.createPersonProfile}
         />

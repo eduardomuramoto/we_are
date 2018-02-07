@@ -43,17 +43,39 @@ render() {
                   <NavItem>
                   <NavLink disabled >Hello, {user.full_name}</NavLink>
                   </NavItem>
+                  { user.company_profile || user.person_profile ?
+                    <UncontrolledDropdown size="sm" style={{marginTop:'5px'}}nav inNavbar>
+                      <DropdownToggle caret>
+                        Profile
+                      </DropdownToggle>
+                      <DropdownMenu right>
+                        <DropdownItem header>Manage Profile</DropdownItem>
+                        {user.company_profile?
+                          <Link to="/company_profiles/update"><DropdownItem>Update Company Profile</DropdownItem></Link>
+                          :
+                          <Link to="/person_profiles/update"><DropdownItem>Update Personal Profile</DropdownItem></Link>
+                        }
+                        <DropdownItem divider />
+                        {user.company_profile?
+                          <Link to="/company_profiles"><DropdownItem>Preview Company Profile</DropdownItem></Link>
+                          :
+                          <Link to="/person_profiles"><DropdownItem>Preview Personal Profile</DropdownItem></Link>
+                        }
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                  :
                   <UncontrolledDropdown size="sm" style={{marginTop:'5px'}}nav inNavbar>
                     <DropdownToggle caret>
                       Create Profile
                     </DropdownToggle>
-                    <DropdownMenu>
+                    <DropdownMenu right>
                       <DropdownItem header>Select Profile Type</DropdownItem>
                       <Link to="/person_profiles/new"><DropdownItem>Personal</DropdownItem></Link>
                       <DropdownItem divider />
-                      <DropdownItem>Company</DropdownItem>
+                      <Link to="/company_profiles/new"><DropdownItem>Company</DropdownItem></Link>
                     </DropdownMenu>
                   </UncontrolledDropdown>
+                  }
                   <NavItem>
                     <Link to="/" onClick={onSignOut}><NavLink>Sign Out</NavLink></Link>
                   </NavItem>
