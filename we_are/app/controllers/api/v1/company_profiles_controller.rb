@@ -4,7 +4,7 @@ class Api::V1::CompanyProfilesController < Api::ApplicationController
 
   def index
     @company_profiles = CompanyProfile.order(created_at: :desc)
-    render json: @company_profiles, each_serializer: TravelSerializer
+    render json: @company_profiles, each_serializer: CompanyProfileSerializer
   end
 
   def show

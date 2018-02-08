@@ -2,6 +2,7 @@ class User < ApplicationRecord
 # ActiveRecord Associations
   has_one :company_profile
   has_one :person_profile
+  has_many :posts, dependent: :destroy
 
 # User Validations
   has_secure_password

@@ -4,7 +4,7 @@ class Api::V1::PersonProfilesController < Api::ApplicationController
 
   def index
     @person_profiles = PersonProfile.order(created_at: :desc)
-    render json: @person_profiles, each_serializer: TravelSerializer
+    render json: @person_profiles, each_serializer: PersonProfileSerializer
   end
 
   def show
@@ -14,7 +14,7 @@ class Api::V1::PersonProfilesController < Api::ApplicationController
   def create
     person_profile = PersonProfile.new person_profile_params
     person_profile.user = current_user
-    
+
     if person_profile.save
       render json: person_profile
     else
