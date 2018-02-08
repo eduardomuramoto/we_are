@@ -75,7 +75,7 @@ class SignInPage extends Component {
 
           <div>
             <br />
-            <Button type="submit" bsStyle="primary" value="Sign In">Sign In</Button>
+            <Button type="submit" bsStyle="secondary" value="Sign In">Sign In</Button>
           </div>
         </form>
       </main>

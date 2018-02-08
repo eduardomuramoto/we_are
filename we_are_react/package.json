@@ -5,6 +5,7 @@
   "dependencies": {
     "append-react-dom": "^1.0.1",
     "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
     "jwt-decode": "^2.2.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",

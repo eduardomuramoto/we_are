@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -23,6 +23,7 @@ class NavBar extends Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -30,36 +31,49 @@ class NavBar extends Component {
   }
 
 render() {
-  const {user, onSignOut = () => {}} = this.props;
+  const {user,loading, onSignOut = () => {}} = this.props;
+  if (loading) {
+    return (
+      <main
+        className="NavBar"
+        style={{padding: '0  20px'}}
+      >
+        <h3>Loading...</h3>
+      </main>
+    )
+  }
   return (
     <div>
-        <Navbar className="NavBar" color="faded" light expand="md">
-          <Link to="/"><NavbarBrand className="NavLogo"><strong>#WEARE</strong></NavbarBrand></Link>
-          <NavbarToggler onClick={this.toggle} />
+        <Navbar className="NavBar" color="faded" style={{borderBottom:"2px solid",marginBottom:"70px",width:"100%",minHeight:"70px",backgroundColor:"whitesmoke"}} light expand="md">
+          <NavbarToggler onClick={this.toggle} className="ml-auto" />
           <Collapse isOpen={this.state.isOpen} navbar>
               {
                 user ? (
                   <Nav className="ml-auto" navbar>
                   <NavItem>
-                  <NavLink disabled >Hello, {user.full_name}</NavLink>
+                  <NavLink disabled style={{color:"black"}} >Hello, {user.full_name}</NavLink>
                   </NavItem>
                   { user.company_profile || user.person_profile ?
                     <UncontrolledDropdown size="sm" style={{marginTop:'5px'}}nav inNavbar>
-                      <DropdownToggle caret>
-                        Profile
+                      <DropdownToggle caret style={{padding:'3px 10px'}}>
+                        <FontAwesome
+                          className='fa-user'
+                          name='user'
+                          style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
+                        />
                       </DropdownToggle>
                       <DropdownMenu right>
                         <DropdownItem header>Manage Profile</DropdownItem>
                         {user.company_profile?
-                          <Link to="/company_profiles/update"><DropdownItem>Update Company Profile</DropdownItem></Link>
+                          <Link to="/company_profiles/update"><DropdownItem>Edit Company Profile</DropdownItem></Link>
                           :
-                          <Link to="/person_profiles/update"><DropdownItem>Update Personal Profile</DropdownItem></Link>
+                          <Link to="/person_profiles/update"><DropdownItem>Edit Personal Profile</DropdownItem></Link>
                         }
                         <DropdownItem divider />
                         {user.company_profile?
-                          <Link to="/company_profiles"><DropdownItem>Preview Company Profile</DropdownItem></Link>
+                          <Link to={`/company_profiles/${user.company_profile.id}`}><DropdownItem>Preview Company Profile</DropdownItem></Link>
                           :
-                          <Link to="/person_profiles"><DropdownItem>Preview Personal Profile</DropdownItem></Link>
+                          <Link to={`/person_profiles/${user.person_profile.id}`}><DropdownItem>Preview Personal Profile</DropdownItem></Link>
                         }
                       </DropdownMenu>
                     </UncontrolledDropdown>
@@ -77,16 +91,16 @@ render() {
                   </UncontrolledDropdown>
                   }
                   <NavItem>
-                    <Link to="/" onClick={onSignOut}><NavLink>Sign Out</NavLink></Link>
+                    <Link to="/" onClick={onSignOut}><NavLink className="mr-auto" style={{color:"black"}}>Sign Out</NavLink></Link>
                   </NavItem>
                   </Nav>
                 ) : (
                   <Nav className="ml-auto" navbar>
                     <NavItem>
-                      <Link to="/sign_in"><NavLink>Sign In</NavLink></Link>
+                      <Link to="/sign_in"><NavLink style={{color:"black"}}>Sign In</NavLink></Link>
                     </NavItem>
                     <NavItem>
-                      <Link to="/sign_up"><NavLink>Sign Up</NavLink></Link>
+                      <Link to="/sign_up"><NavLink style={{color:"black"}}>Sign Up</NavLink></Link>
                     </NavItem>
                   </Nav>
                 )

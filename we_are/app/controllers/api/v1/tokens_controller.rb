@@ -9,8 +9,6 @@ class Api::V1::TokensController < Api::ApplicationController
           last_name: user.last_name,
           full_name: user.full_name,
           email: user.email,
-          company_profile: user.company_profile ? true : false ,
-          person_profile: user.person_profile ? true : false
         })
       }
     else

@@ -76,7 +76,7 @@ function UserForm (props) {
 
       <div>
         <br />
-        <Button type="submit" bsStyle="primary" value="Submit">Sign Up</Button>
+        <Button type="submit" bsStyle="secondary" value="Submit">Sign Up</Button>
       </div>
     </form>
   );

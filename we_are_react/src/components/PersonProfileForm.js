@@ -136,7 +136,7 @@ function PersonProfileForm (props) {
 
       <div>
         <br />
-        <Button type="submit" bsStyle="primary" value="Submit">Submit</Button>
+        <Button type="submit" bsStyle="secondary" value="Submit">Submit</Button>
       </div>
     </form>
   );
