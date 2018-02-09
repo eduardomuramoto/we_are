@@ -32,6 +32,7 @@ gem 'active_model_serializers'
 gem 'faker', github: 'stympy/faker'
 gem 'cowsay', '~> 0.3.0'
 gem 'rack-cors'
+gem 'paperclip'
 
 
 # Use Capistrano for deployment

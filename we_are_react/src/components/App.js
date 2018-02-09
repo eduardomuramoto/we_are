@@ -6,6 +6,9 @@ import {PersonProfileShowPage} from './PersonProfileShowPage';
 import {CompanyProfileNewPage} from './CompanyProfileNewPage';
 import {CompanyProfileUpdatePage} from './CompanyProfileUpdatePage';
 import {CompanyProfileShowPage} from './CompanyProfileShowPage';
+import {PostNewPage} from './PostNewPage';
+import {PostShowPage} from './PostShowPage';
+import {PostIndexPage} from './PostIndexPage';
 import {SignInPage} from './SignInPage';
 import {SignUpPage} from './SignUpPage';
 import {NavBar} from './NavBar';
@@ -111,6 +114,21 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/company_profiles/:id"
               component={CompanyProfileShowPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/posts/new"
+              component={PostNewPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/posts/:id"
+              component={PostShowPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/posts"
+              component={PostIndexPage}
             />
 
 

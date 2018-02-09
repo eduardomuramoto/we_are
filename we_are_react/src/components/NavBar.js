@@ -44,7 +44,7 @@ render() {
   }
   return (
     <div>
-        <Navbar className="NavBar" color="faded" style={{borderBottom:"2px solid",marginBottom:"70px",width:"100%",minHeight:"70px",backgroundColor:"whitesmoke"}} light expand="md">
+        <Navbar className="NavBar" color="faded" style={{borderBottom:"2px solid",marginBottom:"70px",width:"100%",minHeight:"70px",backgroundColor:"whitesmoke"}} light expand="sm">
           <NavbarToggler onClick={this.toggle} className="ml-auto" />
           <Collapse isOpen={this.state.isOpen} navbar>
               {
@@ -53,8 +53,21 @@ render() {
                   <NavItem>
                   <NavLink disabled style={{color:"black"}} >Hello, {user.full_name}</NavLink>
                   </NavItem>
-                  { user.company_profile || user.person_profile ?
-                    <UncontrolledDropdown size="sm" style={{marginTop:'5px'}}nav inNavbar>
+                  { user.company_profile || user.person_profile ? (
+                  <div className="UserWithProfile" style={{display:"flex"}}>
+                    <UncontrolledDropdown className="Posts" size="sm" style={{marginTop:'5px'}}nav inNavbar>
+                      <DropdownToggle caret style={{padding:'3px 10px'}}>
+                        Posts
+                      </DropdownToggle>
+                      <DropdownMenu right style={{backgroundColor:"#FDFEFE", position:"absolute"}}>
+                        <DropdownItem header>Find a Collab</DropdownItem>
+                        <Link to="/posts/new"><DropdownItem>Create Post</DropdownItem></Link>
+                        <DropdownItem divider />
+                        <DropdownItem header>Let's Collab</DropdownItem>
+                        <Link to="/posts"><DropdownItem>Posts</DropdownItem></Link>
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                    <UncontrolledDropdown className="ProfileManage" size="sm" style={{marginLeft:'6%', marginRight:'10px' ,marginTop:'5px'}}nav inNavbar>
                       <DropdownToggle caret style={{padding:'3px 10px'}}>
                         <FontAwesome
                           className='fa-user'
@@ -62,7 +75,7 @@ render() {
                           style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.1)' }}
                         />
                       </DropdownToggle>
-                      <DropdownMenu right>
+                      <DropdownMenu right style={{backgroundColor:"#FDFEFE", position:"absolute"}}>
                         <DropdownItem header>Manage Profile</DropdownItem>
                         {user.company_profile?
                           <Link to="/company_profiles/update"><DropdownItem>Edit Company Profile</DropdownItem></Link>
@@ -77,19 +90,20 @@ render() {
                         }
                       </DropdownMenu>
                     </UncontrolledDropdown>
-                  :
-                  <UncontrolledDropdown size="sm" style={{marginTop:'5px'}}nav inNavbar>
+                  </div>
+                  ):(
+                  <UncontrolledDropdown className="ProfileCreate" size="sm" style={{marginTop:'5px'}}nav inNavbar>
                     <DropdownToggle caret>
                       Create Profile
                     </DropdownToggle>
-                    <DropdownMenu right>
+                    <DropdownMenu right style={{backgroundColor:"#FDFEFE", position:"absolute"}}>
                       <DropdownItem header>Select Profile Type</DropdownItem>
                       <Link to="/person_profiles/new"><DropdownItem>Personal</DropdownItem></Link>
                       <DropdownItem divider />
                       <Link to="/company_profiles/new"><DropdownItem>Company</DropdownItem></Link>
                     </DropdownMenu>
                   </UncontrolledDropdown>
-                  }
+                )}
                   <NavItem>
                     <Link to="/" onClick={onSignOut}><NavLink className="mr-auto" style={{color:"black"}}>Sign Out</NavLink></Link>
                   </NavItem>

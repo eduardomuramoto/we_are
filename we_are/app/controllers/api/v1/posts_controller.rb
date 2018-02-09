@@ -46,7 +46,11 @@ class Api::V1::PostsController < Api::ApplicationController
   end
 
   def post_params
-     params.require(:post).permit( :first_name, :last_name, :email, :education, :experience, :skills, :address,
-       :city, :state, :country, :job_title)
+     params.require(:post).permit( :title, :executive_summary,:product_details, :project_description, :market_sales,
+        posts_attributes: [
+          :id
+          :photo
+          :_destroy
+        ])
   end
 end

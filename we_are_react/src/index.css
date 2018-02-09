@@ -7,3 +7,15 @@ body {
 .NavBar {
   background-color: whitesmoke;
 }
+
+@media only screen and (max-width: 768px){
+  .NavBar{
+    text-align: center;
+  }
+
+  .UserWithProfile{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
