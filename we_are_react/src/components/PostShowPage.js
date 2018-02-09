@@ -36,6 +36,7 @@ this.toggle = this.toggle.bind(this);
   render () {
     const {user} = this.props;
     const {loading, post} = this.state;
+    
 
     if (loading) {
       return (

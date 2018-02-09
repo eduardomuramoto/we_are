@@ -1,5 +1,5 @@
 class Api::V1::PostsController < Api::ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :find_post, only: [:show, :destroy, :update]
 
   def index
@@ -37,7 +37,6 @@ class Api::V1::PostsController < Api::ApplicationController
       head :bad_request
     end
   end
-
 
   private
 

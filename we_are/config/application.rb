@@ -24,7 +24,8 @@ module WeAre
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', :headers => :any, :methods => [
+        resource '*', :headers => :any,
+         :methods => [
           :delete, :put, :patch, :get, :post, :options
         ]
       end

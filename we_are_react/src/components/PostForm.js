@@ -1,5 +1,8 @@
 import React from 'react';
 import { Input, Button } from 'reactstrap';
+import ImagesUploader from 'react-images-uploader';
+import 'react-images-uploader/styles.css';
+import 'react-images-uploader/font.css';
 
 
 function PostForm (props) {
@@ -11,12 +14,15 @@ function PostForm (props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit();
+    const form = new FormData();
+    form.append('picture', event.target.picture.files[0])
+    onSubmit(form);
   };
 
   const handleChange = name => event => {
     onChange({[name]: event.currentTarget.value});
   };
+
 
   return (
     <form
@@ -38,7 +44,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.executive_summary}
-            placeholder="Enter executive_summary"
+            placeholder="Enter executive summary"
             onChange={handleChange("executive_summary")}
           />
       </div>
@@ -48,7 +54,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.product_details}
-            placeholder="Enter your product_details"
+            placeholder="Enter your product details"
             onChange={handleChange("product_details")}
           />
       </div>
@@ -58,7 +64,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.project_description}
-            placeholder="Enter your project_description"
+            placeholder="Enter your project description"
             onChange={handleChange("project_description")}
           />
       </div>
@@ -68,11 +74,22 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.market_sales}
-            placeholder="Enter your market_sales"
+            placeholder="Enter your market & sales"
             onChange={handleChange("market_sales")}
           />
       </div>
 
+      <div>
+        <label htmlFor="picture">Upload your project images</label>
+      <Input
+          name="picture"
+          type="file"
+          multiple={true}
+          accept="image/*"
+          value={post.picture}
+          onChange={handleChange("picture")}
+        />
+      </div>
 
       <div>
         <br />

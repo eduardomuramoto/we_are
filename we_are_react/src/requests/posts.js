@@ -28,16 +28,17 @@ export const Post = {
     )
       .then(res => res.json())
   },
-  create (params) {
+  create (formData) {
     return fetch(
-      `${BASE_URL}/api/v1/posts`,
+      `${BASE_URL}/posts`,
       {
         method: 'POST',
         headers: {
+          Accept: 'application/json',
           'Authorization': getJwt(),
-          'Content-Type': 'application/json'
+          'Content-Type': 'multipart/form-data;'
         },
-        body: JSON.stringify(params)
+        body: formData
       }
     )
     .then(res => res.json());

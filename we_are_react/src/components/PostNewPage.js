@@ -17,6 +17,7 @@ class PostNewPage extends Component {
   }
 
   updateNewPost (data) {
+    console.dir(data);
     const {newPost} = this.state;
 
     this.setState({
@@ -24,11 +25,15 @@ class PostNewPage extends Component {
     });
   }
 
-  createPost () {
+  createPost (form) {
     const {history} = this.props;
     const {newPost} = this.state;
+    // const formData = new FormData();
+    // for (let param in newPost) {
+    //   formData.append(param, newPost[param])
+    // }
     Post
-      .create({post:newPost})
+      .create(form)
       .then(({id}) => {
         history.push(`/posts/${id}`)
       });

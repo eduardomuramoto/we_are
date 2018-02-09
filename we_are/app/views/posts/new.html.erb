@@ -1,0 +1,4 @@
+<%= form_tag posts_path, multipart: true do %>
+ <%= file_field_tag :picture, accept: 'image/jpeg' %>
+ <%= submit_tag %>
+<% end %>
