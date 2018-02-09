@@ -8,7 +8,6 @@ import jwtDecode from 'jwt-decode';
 class CompanyProfileUpdatePage extends Component {
   constructor (props) {
     super(props);
-
     this.state = {
       newCompanyProfile: {
 
@@ -30,6 +29,8 @@ class CompanyProfileUpdatePage extends Component {
     const company_profile = user.company_profile;
     console.log(company_profile);
     this.setState({newCompanyProfile:{...company_profile},loading: false});
+    console.log(this.props);
+
   }
 
   toggle() {
@@ -57,6 +58,8 @@ class CompanyProfileUpdatePage extends Component {
   }
 
   deleteProfile () {
+
+    console.log(this.props.onDeleteProfile);
     const {history} = this.props;
     const {onDeleteProfile = () => {}} = this.props;
     const {newCompanyProfile} = this.state;

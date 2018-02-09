@@ -26,11 +26,13 @@ class PersonProfileNewPage extends Component {
 
   createPersonProfile () {
     const {history} = this.props;
+    const {onCreateProfile = () => {}} = this.props;
     const {newPersonProfile} = this.state;
     PersonProfile
       .create({person_profile:newPersonProfile})
       .then(({id}) => {
-        history.push(`/`)
+        history.push(`/`);
+        onCreateProfile();
       });
   }
 

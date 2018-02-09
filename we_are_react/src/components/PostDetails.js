@@ -14,11 +14,10 @@ function PostDetails (props = {}) {
       <Card>
         <CardBody>
           <CardTitle>
-            <strong>Project: </strong>{props.title}
+            <strong>{props.title}</strong>
           </CardTitle>
-          <CardSubtitle className="text-muted" >details???</CardSubtitle>
-          <CardText><strong>About: </strong><p>{props.executive_summary}.</p></CardText>
-          <CardText><strong>Product Details: </strong><p>{props.product_details}.</p></CardText>
+          <CardSubtitle className="text-muted" ><strong>Product Details: </strong><p>{props.product_details}.</p></CardSubtitle>
+          <CardText><strong>Executive Summary: </strong><p>{props.executive_summary}.</p></CardText>
           <CardText><strong>Project Description: </strong><p>{props.project_description}.</p></CardText>
           <CardText><strong>Market & Sales: </strong><p>{props.market_sales}.</p></CardText>
         </CardBody>

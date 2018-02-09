@@ -26,11 +26,13 @@ class CompanyProfileNewPage extends Component {
 
   createCompanyProfile () {
     const {history} = this.props;
+    const {onCreateProfile = () => {}} = this.props;
     const {newCompanyProfile} = this.state;
     CompanyProfile
       .create({company_profile:newCompanyProfile})
       .then(({id}) => {
-        history.push(`/`)
+        history.push(`/`);
+        onCreateProfile();
       });
   }
 

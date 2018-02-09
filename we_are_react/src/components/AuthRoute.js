@@ -13,7 +13,7 @@ function AuthRoute (props) {
       render={
         props => {
           if (isAuthenticated) {
-            return <Component {...props} />
+            return <Component {...props} {...restProps} />
           } else {
             return <Redirect to={{pathname: "/sign_in"}} />
           }

@@ -33,7 +33,7 @@ class App extends Component {
     };
 
     this.signIn = this.signIn.bind(this);
-    this.deleteProfile = this.deleteProfile.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
   async signIn () {
@@ -54,12 +54,12 @@ class App extends Component {
     })
   }
 
-  deleteProfile () {
-    console.log('DELETE!!!!')
-    // const {user} = this.state;
-    // this.setState({
-    //   user: {...user, company_profile:null, person_profile:null}
-    // })
+  async updateUser () {
+    const jwt = localStorage.getItem('jwt');
+    const payload = jwtDecode(jwt);
+    const user = await User.get(payload.id);
+    console.log(user);
+    this.setState({user: user})
   }
 
   componentDidMount () {
@@ -88,6 +88,7 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/person_profiles/new"
               component={PersonProfileNewPage}
+              onCreateProfile={this.updateUser}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
@@ -103,12 +104,13 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/company_profiles/new"
               component={CompanyProfileNewPage}
+              onCreateProfile={this.updateUser}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
               path="/company_profiles/update"
               component={CompanyProfileUpdatePage}
-              onDeleteProfile={this.deleteProfile}
+              onDeleteProfile={this.updateUser}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
@@ -124,6 +126,7 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/posts/:id"
               component={PostShowPage}
+              user={user}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
