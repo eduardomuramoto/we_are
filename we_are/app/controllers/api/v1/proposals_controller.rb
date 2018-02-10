@@ -14,7 +14,6 @@ class Api::V1::ProposalsController < Api::ApplicationController
   def create
     proposal = Proposal.new proposal_params
     proposal.post = current_post
-    binding.pry
     if proposal.save
       render json: proposal
     else

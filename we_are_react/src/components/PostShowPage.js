@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {PostDetails} from './PostDetails';
 import {ProposalNewPage} from './ProposalNewPage';
+import {ProposalIndexPage} from './ProposalIndexPage';
 import {Post} from '../requests/posts';
 import { Button, Popover, PopoverHeader, PopoverBody  } from 'reactstrap';
 
@@ -57,20 +58,27 @@ this.toggle = this.toggle.bind(this);
         }}
       >
         <PostDetails {...post} />
+
         { user.id === post.user.id?
-        <div className="ProposeCollab" style={{display:"flex",marginTop:"10px"}}>
-          <ProposalNewPage user={user} post={post} />
-          <div>
-            <Button id="Popover1" color="info" onClick={this.toggle}>
-            ?
-            </Button>
-            <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-              <PopoverHeader>Start a Collab</PopoverHeader>
-              <PopoverBody>Get in contact with the project owner. Present yourself and how you would collab.</PopoverBody>
-            </Popover>
-          </div>
-        </div>
-        :""
+          <ProposalIndexPage user={user} post={post} />
+          :
+           (
+             post.proposals.filter(proposal => (proposal.proposer_id === user.id)).length > 0?
+            <ProposalIndexPage user={user} post={{proposals:post.proposals.filter(proposal => (proposal.proposer_id === user.id))}} />
+            :
+            <div className="ProposeCollab" style={{display:"flex",marginTop:"10px"}}>
+              <ProposalNewPage user={user} post={post} />
+              <div>
+                <Button id="Popover1" color="info" onClick={this.toggle}>
+                ?
+                </Button>
+                <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                  <PopoverHeader>Start a Collab</PopoverHeader>
+                  <PopoverBody>Get in touch with the project owner. Present yourself and how you would collab.</PopoverBody>
+                </Popover>
+              </div>
+            </div>
+          )
         }
       </main>
     );
