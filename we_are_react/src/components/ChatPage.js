@@ -15,9 +15,9 @@ componentWillMount() {
 }
 
 handleSendEvent(event) {
-  const {user} = this.props
+  const {user, proposal} = this.props
   event.preventDefault();
-  this.chats.create(this.state.currentChatMessage, user.id, user.full_name);
+  this.chats.create(this.state.currentChatMessage,proposal.id, user.id, user.full_name);
   this.setState({
     currentChatMessage: ''
   });
@@ -46,9 +46,10 @@ createSocket() {
       chatLogs.push(data);
       this.setState({ chatLogs: chatLogs });
     },
-    create: function(chatContent, chatUserId, chatUserName) {
+    create: function(chatContent, chatProposalId, chatUserId, chatUserName) {
       this.perform('create', {
         content: chatContent,
+        proposal_id: chatProposalId,
         user_id: chatUserId,
         user_name: chatUserName
       });
@@ -57,14 +58,19 @@ createSocket() {
 }
 
 renderChatLog() {
+  const {proposal} = this.props
   return this.state.chatLogs.map((el) => {
-    return (
+      console.log(el.proposal_id)
+      console.log(proposal.id)
+      if(el.proposal_id == proposal.id) {
+        return (
       <li key={`chat_${el.id}`}>
         <span className='chat-created-at'>{ el.created_at } - </span>
         <span className='chat-user-name'>{ el.user_name } said: </span>
         <span className='chat-message'>{ el.content }</span>
       </li>
     );
+      }
   });
 }
 
