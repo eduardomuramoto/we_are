@@ -12,6 +12,7 @@ import {PostIndexPage} from './PostIndexPage';
 import {SignInPage} from './SignInPage';
 import {SignUpPage} from './SignUpPage';
 import {NavBar} from './NavBar';
+import {ChatPage} from './ChatPage';
 import {Logo} from './Logo';
 import {AuthRoute} from './AuthRoute';
 import {User} from '../requests/users';
@@ -79,6 +80,7 @@ class App extends Component {
           <NavBar user={user} loading={loading} onSignOut={this.signOut} />
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/chat" exact component={ChatPage} />
             <Route path="/sign_up" component={SignUpPage} />
             <Route path="/sign_in" render={props => {
               return <SignInPage {...props} onSignIn={this.signIn} />
