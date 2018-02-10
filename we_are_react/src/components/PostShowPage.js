@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {PostDetails} from './PostDetails';
+import {ProposalNewPage} from './ProposalNewPage';
 import {Post} from '../requests/posts';
 import { Button, Popover, PopoverHeader, PopoverBody  } from 'reactstrap';
 
@@ -43,10 +44,11 @@ this.toggle = this.toggle.bind(this);
           className="PostShowPage"
           style={{padding: '0  20px'}}
         >
-          <h3>Loading company profile...</h3>
+          <h3>Loading Post...</h3>
         </main>
       )
     }
+
     return (
       <main
         className="PostShowPage"
@@ -57,7 +59,7 @@ this.toggle = this.toggle.bind(this);
         <PostDetails {...post} />
         { user.id === post.user.id?
         <div className="ProposeCollab" style={{display:"flex",marginTop:"10px"}}>
-          <Button style={{marginRight:"1px"}} color="secondary">Propose Collab</Button>
+          <ProposalNewPage user={user} post={post} />
           <div>
             <Button id="Popover1" color="info" onClick={this.toggle}>
             ?

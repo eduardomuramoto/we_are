@@ -80,7 +80,9 @@ class App extends Component {
           <NavBar user={user} loading={loading} onSignOut={this.signOut} />
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/chat" exact component={ChatPage} />
+            <Route path="/chat" render={props => {
+              return <ChatPage {...props} user={user} />
+            }} />
             <Route path="/sign_up" component={SignUpPage} />
             <Route path="/sign_in" render={props => {
               return <SignInPage {...props} onSignIn={this.signIn} />
