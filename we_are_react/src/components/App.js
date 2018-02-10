@@ -94,6 +94,7 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/person_profiles/update"
               component={PersonProfileUpdatePage}
+              onDeleteProfile={this.updateUser}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
