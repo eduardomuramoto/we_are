@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         resources :users, only: [:index, :show,:create,:destroy]
         resources :posts, only: [:index, :show,:create,:destroy,:update]
         resources :proposals, only: [:index, :show,:create,:destroy,:update]
+        resources :chat_messages, only: [:index]
         resources :person_profiles, only: [:index, :show,:create,:destroy,:update]
         resources :company_profiles, only: [:index, :show,:create,:destroy,:update]
         resources :tokens, only: [:create]

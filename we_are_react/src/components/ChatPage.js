@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {ChatMessage} from '../requests/chat_messages';
 import Cable from 'actioncable';
 
 class ChatPage extends Component {
@@ -6,12 +7,21 @@ class ChatPage extends Component {
   super(props);
   this.state = {
     currentChatMessage: '',
-    chatLogs: []
+    chatLogs: [],
+    loading:true
   };
 }
 
 componentWillMount() {
   this.createSocket();
+}
+
+async componentDidMount () {
+  const chatLogs = await ChatMessage.all();
+  this.setState({
+    chatLogs,
+    loading: false,
+  });
 }
 
 handleSendEvent(event) {
@@ -60,8 +70,6 @@ createSocket() {
 renderChatLog() {
   const {proposal} = this.props
   return this.state.chatLogs.map((el) => {
-      console.log(el.proposal_id)
-      console.log(proposal.id)
       if(el.proposal_id == proposal.id) {
         return (
       <li key={`chat_${el.id}`}>
@@ -75,6 +83,17 @@ renderChatLog() {
 }
 
   render() {
+    const {loading} = this.state
+    if (loading) {
+      return (
+        <main
+          className="PostShowPage"
+          style={{padding: '0  20px'}}
+        >
+          <h3>Loading Post...</h3>
+        </main>
+      )
+    }
     return (
       <div className='ChatPage'>
         <div className='stage'>
