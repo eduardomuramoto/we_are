@@ -43,7 +43,7 @@ render() {
   }
   return (
     <div>
-        <Navbar className="NavBar" color="faded" style={{borderBottom:"2px solid",marginBottom:"70px",width:"100%",minHeight:"70px",backgroundColor:"whitesmoke"}} light expand="sm">
+        <Navbar className="NavBar" color="faded" style={{borderBottom:"2px solid",width:"100%",minHeight:"70px",backgroundColor:"whitesmoke"}} light expand="sm">
           <NavbarToggler onClick={this.toggle} className="ml-auto" />
           <Collapse isOpen={this.state.isOpen} navbar>
               {
