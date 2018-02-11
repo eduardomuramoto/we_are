@@ -25,8 +25,8 @@ class ProposalIndexPage extends Component {
                   <Card style={{ width:'33%', marginBottom: '1rem' }} key={proposal.id}>
                     <CardBody>
                       <CardText>{proposal.ice_breaker}</CardText>
-                      <Link to={`/proposals/${proposal.id}`}><Button color="secondary">Go to Discussion Board</Button></Link>
-                    </CardBody>
+                      <Link to={`/proposals/${proposal.id}`}><Button size="sm"color="secondary">Go Discussion Board</Button></Link>
+                  </CardBody>
                 </Card>
               ))
             }

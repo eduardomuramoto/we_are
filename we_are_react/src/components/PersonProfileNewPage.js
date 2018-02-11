@@ -42,7 +42,7 @@ class PersonProfileNewPage extends Component {
     return (
       <main
         className="PersonProfileNewPage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 15%'}}
       >
         <h2>Create your personal profile</h2>
         <PersonProfileForm

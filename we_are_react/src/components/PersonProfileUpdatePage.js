@@ -86,7 +86,7 @@ class PersonProfileUpdatePage extends Component {
     return (
       <main
         className="PersonProfileUpdatePage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 15%'}}
       >
         <h2>Manage your person profile</h2>
         <PersonProfileForm

@@ -40,7 +40,7 @@ class PostNewPage extends Component {
     return (
       <main
         className="PostNewPage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 15%'}}
       >
         <h2>Create your post</h2>
         <PostForm

@@ -36,9 +36,7 @@ class PersonProfileShowPage extends Component {
     return (
       <main
         className="PersonProfileShowPage"
-        style={{
-          padding: '0 20px'
-        }}
+        style={{padding: '0 15%'}}
       >
         <PersonProfileDetails {...person_profile} />
       </main>

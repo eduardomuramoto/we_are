@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {ChatMessage} from '../requests/chat_messages';
+import { Card, Input,Button } from 'reactstrap';
 import Cable from 'actioncable';
 
 class ChatPage extends Component {
@@ -68,21 +69,32 @@ createSocket() {
 }
 
 renderChatLog() {
-  const {proposal} = this.props
+  const {proposal,user} = this.props
   return this.state.chatLogs.map((el) => {
       if(el.proposal_id == proposal.id) {
-        return (
-      <li key={`chat_${el.id}`}>
-        <span className='chat-created-at'>{ el.created_at } - </span>
-        <span className='chat-user-name'>{ el.user_name } said: </span>
-        <span className='chat-message'>{ el.content }</span>
-      </li>
-    );
+        if(user.id == el.user_id) {
+          return (
+            <p style={{listStyleType: 'none'}} key={`chat_${el.id}`}>
+              <p className='chat-message-owner'>{ el.content }
+              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> { el.user_name } -  { el.created_at }</span>
+              </p>
+            </p>
+          );
+        } else{
+          return (
+            <p style={{listStyleType: 'none'}} key={`chat_${el.id}`}>
+              <p className='chat-message'>{ el.content }
+              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> { el.user_name } -  { el.created_at }</span>
+              </p>
+            </p>
+          );
+        }
       }
   });
 }
 
   render() {
+    const {proposal} = this.props
     const {loading} = this.state
     if (loading) {
       return (
@@ -97,22 +109,25 @@ renderChatLog() {
     return (
       <div className='ChatPage'>
         <div className='stage'>
-          <h1>Chat</h1>
-          <ul className='chat-logs'>
+          <h1>{proposal.ice_breaker}'s Discussion Board</h1>
+          <Card className='chat-logs'>
             { this.renderChatLog() }
-          </ul>
-          <input
+          </Card>
+          <div className='ChatForm' style={{display:'flex', marginTop:'10px'}}>
+          <Input
             onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
             value={ this.state.currentChatMessage }
             onChange={ (e) => this.updateCurrentChatMessage(e) }
             type='text'
             placeholder='Enter your message...'
             className='chat-input' />
-            <button
+            <Button
+                color='secondary'
                 onClick={ (e) => this.handleSendEvent(e) }
                 className='send'>
                 Send
-              </button>
+              </Button>
+          </div>
         </div>
       </div>
     );

@@ -88,7 +88,7 @@ class CompanyProfileUpdatePage extends Component {
     return (
       <main
         className="CompanyProfileUpdatePage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 15%'}}
       >
         <h2>Manage your company profile</h2>
         <CompanyProfileForm

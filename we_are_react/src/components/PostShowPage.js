@@ -54,7 +54,7 @@ this.toggle = this.toggle.bind(this);
       <main
         className="PostShowPage"
         style={{
-          padding: '0 20px'
+          padding: '0 15%'
         }}
       >
         <PostDetails {...post} />

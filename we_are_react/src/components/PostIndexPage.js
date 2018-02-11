@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Post} from '../requests/posts';
 import {Link} from 'react-router-dom';
-import { Card, CardImg,  CardBody,
+import { Card, CardText,  CardBody,
   CardTitle,  Button } from 'reactstrap';
 import jwtDecode from 'jwt-decode';
 
@@ -40,17 +40,18 @@ class PostIndexPage extends Component {
       return (
         <main
           className="PostIndexPage"
-          style={{padding: '0  20px', width:'100%'}}
+          style={{width:'100%'}}
           >
-            <h2>Posts</h2>
-            <div style={{width:'100%', paddingLeft: '0 20px',display: 'flex',justifyContent: 'space-between', flexWrap: 'wrap'}}>
+              <h2>Posts</h2>
+            <div className="body" style={{width:'95%', paddingLeft: '0 20px',display: 'flex',justifyContent: 'center', flexWrap: 'wrap'}} >
               {
                 this.state.posts.map(post => (
-                  <Card style={{ width:'33%', marginBottom: '1rem' }} key={post.id}>
-                    <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+                  <Card  style={{width:'40%', marginBottom:"10px", marginLeft:"10px"}} key={post.id} >
                     <CardBody>
-                      <Link to={`/posts/${post.id}`}>
-                      <CardTitle>{post.title}</CardTitle>
+                    <CardTitle>{post.title}</CardTitle>
+                    <CardText>{post.executive_summary}</CardText>
+                    <Link to={`/posts/${post.id}`}>
+                      <Button size="sm">More Details</Button>
                     </Link>
                   </CardBody>
                 </Card>

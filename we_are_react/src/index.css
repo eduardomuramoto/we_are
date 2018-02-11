@@ -19,3 +19,27 @@ body {
   }
 
 }
+
+.chat-message{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    padding: 10px 18px;
+    margin: 5px 100px 5px 20px;
+	  border-color: #cdecb0;
+}
+
+.chat-message-owner{
+    background-color: #E2EDD2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    padding: 10px 18px;
+    margin: 5px 20px 5px 100px;
+	  border-color: #cdecb0;
+}
+
+.chat-logs{
+  height: 60%;
+  width: 100%;
+  padding: 5%;
+}

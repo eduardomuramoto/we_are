@@ -38,7 +38,6 @@ render() {
         className="NavBar"
         style={{padding: '0  20px'}}
       >
-        <h3>Loading...</h3>
       </main>
     )
   }
@@ -116,11 +115,6 @@ render() {
                     <NavItem>
                       <Link to="/sign_up"><NavLink style={{color:"black"}}>Sign Up</NavLink></Link>
                     </NavItem>
-
-                    <NavItem>
-                      <Link to="/chat"><NavLink style={{color:"black"}}>Chat</NavLink></Link>
-                    </NavItem>
-
                   </Nav>
                 )
               }

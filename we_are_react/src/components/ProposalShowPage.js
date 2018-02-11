@@ -38,7 +38,7 @@ class ProposalShowPage extends Component {
       <main
         className="ProposalShowPage"
         style={{
-          padding: '0 20px'
+          padding: '0 10%'
         }}
       >
         <ChatPage proposal={proposal} user={user} />
