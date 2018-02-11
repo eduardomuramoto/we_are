@@ -76,7 +76,7 @@ renderChatLog() {
           return (
             <p style={{listStyleType: 'none'}} key={`chat_${el.id}`}>
               <p className='chat-message-owner'>{ el.content }
-              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> { el.user_name } -  { el.created_at }</span>
+              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> - { el.user_name } -  { el.created_at }</span>
               </p>
             </p>
           );
@@ -84,7 +84,7 @@ renderChatLog() {
           return (
             <p style={{listStyleType: 'none'}} key={`chat_${el.id}`}>
               <p className='chat-message'>{ el.content }
-              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> { el.user_name } -  { el.created_at }</span>
+              <span className='chat-message-info' style={{fontSize:'12px',color:'grey'}}> - { el.user_name } -  { el.created_at }</span>
               </p>
             </p>
           );
@@ -110,9 +110,9 @@ renderChatLog() {
       <div className='ChatPage'>
         <div className='stage'>
           <h1>{proposal.ice_breaker}'s Discussion Board</h1>
-          <Card className='chat-logs'>
+          <div className='chat-logs'>
             { this.renderChatLog() }
-          </Card>
+          </div>
           <div className='ChatForm' style={{display:'flex', marginTop:'10px'}}>
           <Input
             onKeyPress={ (e) => this.handleChatInputKeyPress(e) }

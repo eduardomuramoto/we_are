@@ -39,7 +39,12 @@ body {
 }
 
 .chat-logs{
-  height: 60%;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 500px;
   width: 100%;
-  padding: 5%;
+  padding: 5px;
 }
