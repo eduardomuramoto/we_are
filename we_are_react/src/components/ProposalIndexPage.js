@@ -13,7 +13,7 @@ class ProposalIndexPage extends Component {
           className="PostIndexPage"
           style={{ width:'100%', marginTop:'10px'}}
           >
-            <h2>Proposals</h2>
+            <h3>Proposals</h3>
             <div style={{width:'100%',display: 'flex', flexWrap: 'wrap'}}>
               {
                 post.proposals.map(proposal => (

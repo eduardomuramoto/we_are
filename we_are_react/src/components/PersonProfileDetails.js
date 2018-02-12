@@ -32,7 +32,7 @@ class PersonProfileDetails extends Component {
                 name='linkedin'
                 border='true'
                 inverse='true'
-                style={{backgroundColor:'grey',borderRadius:'5px', marginBottom:'5px'}}
+                style={{backgroundColor:'#6D757C',borderRadius:'5px', marginBottom:'5px'}}
               />
             </a>
               <a target="_blank" href={this.props.portfolio}>
@@ -40,7 +40,7 @@ class PersonProfileDetails extends Component {
                 name='link'
                 border='true'
                 inverse='true'
-                style={{backgroundColor:'grey',borderRadius:'5px', marginBottom:'5px', marginLeft:'10px'}}
+                style={{backgroundColor:'#6D757C',borderRadius:'5px', marginBottom:'5px', marginLeft:'10px'}}
               />
             </a>
             </span>

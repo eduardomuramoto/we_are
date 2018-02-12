@@ -2,12 +2,14 @@ import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 import { Card, CardText, CardBody,
   CardTitle, CardSubtitle, Badge} from 'reactstrap';
-// import {Field} from './Field';
+import FontAwesome from 'react-fontawesome';
+
 
 class PostDetails extends Component {
  render() {
   return (
     <div className="PostDetails" style={{marginTop:"20px"}}>
+      <h2>Project</h2>
       <Card>
         <CardBody>
           <CardTitle>
@@ -23,6 +25,16 @@ class PostDetails extends Component {
           }
           </CardTitle>
           <CardSubtitle className="text-muted" ><strong>Product Details: </strong><p>{this.props.product_details}.</p></CardSubtitle>
+          <span><strong>Project Website: </strong>
+            <a target="_blank" href={this.props.product_website}>
+            <FontAwesome
+              name='link'
+              border='true'
+              inverse='true'
+              style={{backgroundColor:'#6D757C',borderRadius:'5px', marginBottom:'5px', marginLeft:'10px'}}
+            />
+          </a>
+          </span>
           <CardText><strong>Executive Summary: </strong><p>{this.props.executive_summary}.</p></CardText>
           <CardText><strong>Project Description: </strong><p>{this.props.project_description}.</p></CardText>
           <CardText><strong>Market & Sales: </strong><p>{this.props.market_sales}.</p></CardText>
