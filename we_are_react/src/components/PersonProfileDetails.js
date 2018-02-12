@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import { Card, CardText, CardBody,
   CardTitle, CardSubtitle, Badge , Collapse, Button } from 'reactstrap';
+import FontAwesome from 'react-fontawesome';
+
 
 // import {Field} from './Field';
 
@@ -24,6 +26,24 @@ class PersonProfileDetails extends Component {
               <Badge color="secondary">{this.props.job_title}</Badge>
             </CardTitle>
             <CardSubtitle className="text-muted" >{this.props.city} - {this.props.state}/{this.props.country}</CardSubtitle>
+            <span><strong>Links: </strong>
+            <a target="_blank" href={this.props.linkedin}>
+              <FontAwesome
+                name='linkedin'
+                border='true'
+                inverse='true'
+                style={{backgroundColor:'grey',borderRadius:'5px', marginBottom:'5px'}}
+              />
+            </a>
+              <a target="_blank" href={this.props.portfolio}>
+              <FontAwesome
+                name='link'
+                border='true'
+                inverse='true'
+                style={{backgroundColor:'grey',borderRadius:'5px', marginBottom:'5px', marginLeft:'10px'}}
+              />
+            </a>
+            </span>
             <CardText style={{marginTop:"10px"}}><strong>Experience:</strong><p>{this.props.experience}</p></CardText>
             <Button color="secondary" size="sm" onClick={this.toggle} style={{ marginBottom: '10px', marginTop:'10px' }}>Details</Button>
             <Collapse isOpen={this.state.collapse}>
