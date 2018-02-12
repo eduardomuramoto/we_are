@@ -1,33 +1,23 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {ChatPage} from './ChatPage';
-import { Card, CardImg,  CardBody,
+import {ProposalDetails} from './ProposalDetails';
+import { Card, CardBody,
   CardText,  Button} from 'reactstrap';
 
 class ProposalIndexPage extends Component {
-  constructor (props) {
-    super(props);
-  }
-
-
 
   render () {
-    const {user,post} = this.props
+    const {post} = this.props
       return (
         <main
           className="PostIndexPage"
-          style={{padding: '0  20px', width:'100%'}}
+          style={{ width:'100%', marginTop:'10px'}}
           >
             <h2>Proposals</h2>
-            <div style={{width:'100%', paddingLeft: '0 20px',display: 'flex',justifyContent: 'space-between', flexWrap: 'wrap'}}>
+            <div style={{width:'100%',display: 'flex', flexWrap: 'wrap'}}>
               {
                 post.proposals.map(proposal => (
-                  <Card style={{ width:'33%', marginBottom: '1rem' }} key={proposal.id}>
-                    <CardBody>
-                      <CardText>{proposal.ice_breaker}</CardText>
-                      <Link to={`/proposals/${proposal.id}`}><Button size="sm"color="secondary">Go Discussion Board</Button></Link>
-                  </CardBody>
-                </Card>
+                  <ProposalDetails proposal={proposal} />
               ))
             }
           </div>

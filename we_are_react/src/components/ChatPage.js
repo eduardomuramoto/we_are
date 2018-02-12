@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ChatMessage} from '../requests/chat_messages';
-import { Card, Input,Button } from 'reactstrap';
+import {Link} from 'react-router-dom';
+import { Input,Button ,Badge} from 'reactstrap';
 import Cable from 'actioncable';
 
 class ChatPage extends Component {
@@ -71,8 +72,8 @@ createSocket() {
 renderChatLog() {
   const {proposal,user} = this.props
   return this.state.chatLogs.map((el) => {
-      if(el.proposal_id == proposal.id) {
-        if(user.id == el.user_id) {
+      if(el.proposal_id === proposal.id) {
+        if(user.id === el.user_id) {
           return (
             <p style={{listStyleType: 'none'}} key={`chat_${el.id}`}>
               <p className='chat-message-owner'>{ el.content }
@@ -94,7 +95,7 @@ renderChatLog() {
 }
 
   render() {
-    const {proposal} = this.props
+    const {proposal, proposer} = this.props
     const {loading} = this.state
     if (loading) {
       return (
@@ -109,7 +110,18 @@ renderChatLog() {
     return (
       <div className='ChatPage'>
         <div className='stage'>
-          <h3>{proposal.ice_breaker}'s Discussion Board</h3>
+          <h3>
+            {proposal.ice_breaker}'s Discussion Board
+            {proposer.company_profile?
+              <Link to={`/company_profiles/${proposer.company_profile.id}`}>
+              <Badge style={{marginLeft:'10px'}} size='sm' color="secondary" pill>by {proposer.company_profile.name}</Badge>
+              </Link>
+            :
+              <Link to={`/person_profiles/${proposer.person_profile.id}`}>
+              <Badge style={{marginLeft:'10px'}} size='sm' color="secondary" pill>by {proposer.person_profile.first_name} {proposer.person_profile.last_name}</Badge>
+              </Link>
+          }
+          </h3>
           <div className='chat-logs'>
             { this.renderChatLog() }
           </div>

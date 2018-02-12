@@ -16,7 +16,6 @@ class ProposalShowPage extends Component {
   async componentDidMount () {
     const {params} = this.props.match;
     const proposal = await Proposal.get(params.id);
-    // console.log(proposal)
     this.setState({proposal, loading: false});
   }
 

@@ -1,13 +1,9 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
+import { Card, CardText, CardBody,
   CardTitle, CardSubtitle, Badge} from 'reactstrap';
 // import {Field} from './Field';
 
 function CompanyProfileDetails (props = {}) {
-  // const {seller = {}} = props;
-  const containerStyle = {
-    paddingLeft: "10px"
-  };
 
   return (
     <div className="CompanyProfileDetails" style={{marginTop:"20px"}}>

@@ -49,6 +49,6 @@ class Api::V1::ProposalsController < Api::ApplicationController
   end
 
   def proposal_params
-     params.require(:proposal).permit( :project_owner_id, :proposer_id , :ice_breaker)
+     params.require(:proposal).permit( :project_owner_id, :proposer_id , :ice_breaker, :proposer_is_company, :proposer_profile_id, :proposer_name)
   end
 end

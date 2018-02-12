@@ -30,7 +30,10 @@ class ProposalNewPage extends Component {
       .create({ ice_breaker:ice_breaker,
                 post_id:post.id,
                 project_owner_id:post.user.id,
-                proposer_id:user.id
+                proposer_id:user.id,
+                proposer_is_company:user.company_profile? true : false,
+                proposer_profile_id: user.company_profile? user.company_profile.id : user.person_profile.id,
+                proposer_name: user.company_profile? `${user.company_profile.name}` : `${user.person_profile.first_name} ${user.person_profile.last_name}`
               })
       .then(data => {
 

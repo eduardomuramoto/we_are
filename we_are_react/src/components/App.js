@@ -123,6 +123,7 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/posts/new"
               component={PostNewPage}
+              user={user}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}

@@ -1,7 +1,11 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+main:not(.HomePage) {
+  margin-top: 70px;
 }
 
 .NavBar {
@@ -54,7 +58,7 @@ body {
   opacity: .95;
   z-index: 1;
   position:absolute;
-  padding: 10% 5%;
+  padding: 5% 5%;
   width: 60%;
   height: 60%;
   margin: 10% 20%;

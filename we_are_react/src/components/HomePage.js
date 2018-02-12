@@ -13,9 +13,15 @@ function HomePage (props) {
         <h1 style={{margin:'0'}}>WE ARE . . .</h1>
         <br/>
         <p>
-          This is a collaboration portal, that connects awesome people that want to make ideas happen.
+          <strong>collaboration</strong> - /kəˌlæbəˈreɪʃn/ - <i>noun</i>
         </p>
-        <h4>. . . collab.</h4>
+        <p>
+           <strong>1.</strong> the act of working with another person or group of people to create or produce something;
+        </p>
+        <p>
+           <strong>2.</strong>  a piece of work produced by two or more people or groups working together.
+        </p>
+        <h4 style={{textAlign:'right'}}>. . . collab.</h4>
       </div>
       <img src={Home} alt="WEARE" style={{width:'100%',filter:'brightness(0.5)'}}/>
 

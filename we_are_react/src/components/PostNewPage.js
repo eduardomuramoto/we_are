@@ -8,7 +8,9 @@ class PostNewPage extends Component {
 
     this.state = {
       newPost: {
-
+        owner_is_company:this.props.user.company_profile? true : false,
+        owner_profile_id:this.props.user.company_profile? this.props.user.company_profile.id : this.props.user.person_profile.id,
+        owner_name:this.props.user.company_profile? `${this.props.user.company_profile.name}` : `${this.props.user.person_profile.first_name} ${this.props.user.person_profile.last_name}`
       }
     };
 
