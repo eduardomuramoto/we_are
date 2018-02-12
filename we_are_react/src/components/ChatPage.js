@@ -112,15 +112,6 @@ renderChatLog() {
         <div className='stage'>
           <h3>
             {proposal.ice_breaker}'s Discussion Board
-            {proposer.company_profile?
-              <Link to={`/company_profiles/${proposer.company_profile.id}`}>
-              <Badge style={{marginLeft:'10px'}} size='sm' color="secondary" pill>by {proposer.company_profile.name}</Badge>
-              </Link>
-            :
-              <Link to={`/person_profiles/${proposer.person_profile.id}`}>
-              <Badge style={{marginLeft:'10px'}} size='sm' color="secondary" pill>by {proposer.person_profile.first_name} {proposer.person_profile.last_name}</Badge>
-              </Link>
-          }
           </h3>
           <div className='chat-logs'>
             { this.renderChatLog() }

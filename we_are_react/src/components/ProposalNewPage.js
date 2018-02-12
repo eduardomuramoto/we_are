@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Proposal} from '../requests/proposals';
+import { Redirect } from 'react-router-dom'
 import { FormControl, Button } from 'react-bootstrap';
 
 class ProposalNewPage extends Component {
@@ -36,7 +37,6 @@ class ProposalNewPage extends Component {
                 proposer_name: user.company_profile? `${user.company_profile.name}` : `${user.person_profile.first_name} ${user.person_profile.last_name}`
               })
       .then(data => {
-
     })
   }
 

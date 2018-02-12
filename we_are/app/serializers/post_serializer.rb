@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-attributes :id, :title, :executive_summary,:product_details, :project_description, :market_sales,:owner_is_company,:owner_profile_id,:owner_name, :picture_photos
+attributes :id, :title, :executive_summary,:product_details, :product_website, :project_description, :market_sales,:owner_is_company,:owner_profile_id,:owner_name, :picture_photos
 
   def picture_photos
     object.pictures.map do |picture|
@@ -17,13 +17,13 @@ attributes :id, :title, :executive_summary,:product_details, :project_descriptio
 
     has_one :company_profile
     class CompanyProfileSerializer < ActiveModel::Serializer
-      attributes :id, :name, :email, :about, :sector, :address, :city, :state, :country
+      attributes :id, :name, :email,:website, :linkedin, :about, :sector, :address, :city, :state, :country
 
     end
 
     has_one :person_profile
     class PersonProfileSerializer < ActiveModel::Serializer
-      attributes :id, :first_name, :last_name, :email, :education, :experience, :skills, :address,
+      attributes :id, :first_name, :last_name,:portfolio, :linkedin, :email, :education, :experience, :skills, :address,
       :city, :state, :country, :job_title
 
     end

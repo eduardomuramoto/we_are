@@ -46,7 +46,7 @@ class Api::V1::PersonProfilesController < Api::ApplicationController
   end
 
   def person_profile_params
-     params.require(:person_profile).permit( :first_name, :last_name, :email, :education, :experience, :skills, :address,
+     params.require(:person_profile).permit( :first_name, :last_name, :email, :portfolio, :linkedin, :education, :experience, :skills, :address,
        :city, :state, :country, :job_title)
   end
 end

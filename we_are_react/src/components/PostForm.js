@@ -54,6 +54,16 @@ function PostForm (props) {
       </div>
 
       <div>
+        <label htmlFor="product_website">Website</label>
+        <Input
+            type="text"
+            value={post.product_website}
+            placeholder="Enter your product website"
+            onChange={handleChange("product_website")}
+          />
+      </div>
+
+      <div>
         <label htmlFor="project_description">Project Description</label>
         <Input
             type="textarea"
