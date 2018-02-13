@@ -48,7 +48,7 @@ class ProposalNewPage extends Component {
             <FormControl
                 type="ice_breaker"
                 value={ice_breaker}
-                placeholder="Enter an ice breaker"
+                placeholder="Enter your Idea's title"
                 onChange={this.handleChange("ice_breaker")}
               />
           </div>
