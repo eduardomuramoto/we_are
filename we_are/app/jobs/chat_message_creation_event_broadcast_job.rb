@@ -6,7 +6,7 @@ class ChatMessageCreationEventBroadcastJob < ApplicationJob
       .server
       .broadcast('chat_channel',
                  id: chat_message.id,
-                 created_at: chat_message.created_at.strftime('%F'), # Change date format
+                 created_at: chat_message.created_at.strftime('%F at %R'), # Change date format
                  content: chat_message.content,
                  proposal_id: chat_message.proposal_id,
                  user_id: chat_message.user_id,
