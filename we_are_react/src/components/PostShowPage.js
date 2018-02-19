@@ -67,7 +67,7 @@ this.toggle = this.toggle.bind(this);
             <ProposalIndexPage user={user} post={{proposals:post.proposals.filter(proposal => (proposal.proposer_id === user.id))}} />
             :
             <div className="ProposeCollab" style={{display:"flex",marginTop:"10px"}}>
-              <ProposalNewPage user={user} post={post} />
+              <ProposalNewPage {...this.props} user={user} post={post} />
               <div>
                 <Button id="Popover1" color="info" onClick={this.toggle}>
                 ?

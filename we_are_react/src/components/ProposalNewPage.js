@@ -25,6 +25,7 @@ class ProposalNewPage extends Component {
 
   createProposal (event) {
     event.preventDefault();
+    const {history} = this.props;
     const {user,post} = this.props
     const {ice_breaker} = this.state;
     Proposal
@@ -37,6 +38,7 @@ class ProposalNewPage extends Component {
                 proposer_name: user.company_profile? `${user.company_profile.name}` : `${user.person_profile.first_name} ${user.person_profile.last_name}`
               })
       .then(data => {
+        history.push(`/posts`);
     })
   }
 
