@@ -42,7 +42,7 @@ class CompanyProfileNewPage extends Component {
     return (
       <main
         className="CompanyProfileNewPage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 15%'}}
       >
         <h2>Create your company profile</h2>
         <CompanyProfileForm

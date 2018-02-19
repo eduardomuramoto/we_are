@@ -46,7 +46,7 @@ class Api::V1::CompanyProfilesController < Api::ApplicationController
   end
 
   def company_profile_params
-     params.require(:company_profile).permit( :name, :email, :about, :sector, :address,
+     params.require(:company_profile).permit( :name, :email, :about, :website, :linkedin, :sector, :address,
        :city, :state, :country)
   end
 end

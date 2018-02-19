@@ -38,7 +38,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.executive_summary}
-            placeholder="Enter executive_summary"
+            placeholder="Enter a summary of the project goals"
             onChange={handleChange("executive_summary")}
           />
       </div>
@@ -48,8 +48,18 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.product_details}
-            placeholder="Enter your product_details"
+            placeholder="Enter a summary of the product"
             onChange={handleChange("product_details")}
+          />
+      </div>
+
+      <div>
+        <label htmlFor="product_website">Website</label>
+        <Input
+            type="text"
+            value={post.product_website}
+            placeholder="Enter the project website"
+            onChange={handleChange("product_website")}
           />
       </div>
 
@@ -58,7 +68,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.project_description}
-            placeholder="Enter your project_description"
+            placeholder="Enter the project description"
             onChange={handleChange("project_description")}
           />
       </div>
@@ -68,7 +78,7 @@ function PostForm (props) {
         <Input
             type="textarea"
             value={post.market_sales}
-            placeholder="Enter your market_sales"
+            placeholder="Enter the project current status and/or prospect status for Marketing & Sales"
             onChange={handleChange("market_sales")}
           />
       </div>

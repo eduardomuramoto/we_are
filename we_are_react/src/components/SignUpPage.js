@@ -44,7 +44,7 @@ class SignUpPage extends Component {
     return (
       <main
         className="UserNewPage"
-        style={{padding: '0  20px'}}
+        style={{padding: '0 30%'}}
       >
         <h2>New User</h2>
         <UserForm

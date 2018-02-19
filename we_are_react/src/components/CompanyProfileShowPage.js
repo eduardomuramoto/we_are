@@ -36,9 +36,7 @@ class CompanyProfileShowPage extends Component {
     return (
       <main
         className="CompanyProfileShowPage"
-        style={{
-          padding: '0 20px'
-        }}
+        style={{padding: '0 15%'}}
       >
         <CompanyProfileDetails {...company_profile} />
       </main>

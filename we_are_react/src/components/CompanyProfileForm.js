@@ -45,6 +45,26 @@ function CompanyProfileForm (props) {
       </div>
 
       <div>
+        <label htmlFor="website">Company Site</label>
+        <Input
+            type="text"
+            value={company_profile.website}
+            placeholder="Enter company website"
+            onChange={handleChange("website")}
+          />
+      </div>
+
+      <div>
+        <label htmlFor="linkedin">Linkedin</label>
+        <Input
+            type="text"
+            value={company_profile.linkedin}
+            placeholder="Enter company linkedin"
+            onChange={handleChange("linkedin")}
+          />
+      </div>
+
+      <div>
         <label htmlFor="address">Address</label>
         <Input
             type="text"

@@ -54,6 +54,26 @@ function PersonProfileForm (props) {
       </div>
 
       <div>
+        <label htmlFor="portfolio">Portfolio</label>
+        <Input
+            type="text"
+            value={person_profile.portfolio}
+            placeholder="Enter your portfolio"
+            onChange={handleChange("portfolio")}
+          />
+      </div>
+
+      <div>
+        <label htmlFor="linkedin">Linkedin</label>
+        <Input
+            type="text"
+            value={person_profile.linkedin}
+            placeholder="Enter your linkedin"
+            onChange={handleChange("linkedin")}
+          />
+      </div>
+
+      <div>
         <label htmlFor="address">Address</label>
         <Input
             type="text"

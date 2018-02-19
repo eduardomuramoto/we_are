@@ -9,6 +9,7 @@ import {CompanyProfileShowPage} from './CompanyProfileShowPage';
 import {PostNewPage} from './PostNewPage';
 import {PostShowPage} from './PostShowPage';
 import {PostIndexPage} from './PostIndexPage';
+import {ProposalShowPage} from './ProposalShowPage';
 import {SignInPage} from './SignInPage';
 import {SignUpPage} from './SignUpPage';
 import {NavBar} from './NavBar';
@@ -122,6 +123,7 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/posts/new"
               component={PostNewPage}
+              user={user}
             />
             <AuthRoute
               isAuthenticated={this.isAuth()}
@@ -133,6 +135,12 @@ class App extends Component {
               isAuthenticated={this.isAuth()}
               path="/posts"
               component={PostIndexPage}
+            />
+            <AuthRoute
+              isAuthenticated={this.isAuth()}
+              path="/proposals/:id"
+              component={ProposalShowPage}
+              user={user}
             />
 
 

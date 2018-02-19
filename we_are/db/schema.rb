@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209021731) do
+ActiveRecord::Schema.define(version: 20180212065424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chat_messages", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "user_name"
+    t.integer "proposal_id"
+  end
 
   create_table "company_profiles", force: :cascade do |t|
     t.string "name"
@@ -27,6 +36,8 @@ ActiveRecord::Schema.define(version: 20180209021731) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "website"
+    t.string "linkedin"
     t.index ["user_id"], name: "index_company_profiles_on_user_id"
   end
 
@@ -45,6 +56,8 @@ ActiveRecord::Schema.define(version: 20180209021731) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "portfolio"
+    t.string "linkedin"
     t.index ["user_id"], name: "index_person_profiles_on_user_id"
   end
 
@@ -67,7 +80,24 @@ ActiveRecord::Schema.define(version: 20180209021731) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "owner_is_company"
+    t.integer "owner_profile_id"
+    t.string "owner_name"
+    t.string "product_website"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.integer "project_owner_id"
+    t.integer "proposer_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ice_breaker"
+    t.boolean "proposer_is_company"
+    t.integer "proposer_profile_id"
+    t.string "proposer_name"
+    t.index ["post_id"], name: "index_proposals_on_post_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +113,5 @@ ActiveRecord::Schema.define(version: 20180209021731) do
   add_foreign_key "company_profiles", "users"
   add_foreign_key "person_profiles", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "proposals", "posts"
 end

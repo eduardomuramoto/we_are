@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 # ActiveRecord Associations
   belongs_to :user
+  has_many :proposals, dependent: :destroy
 
   has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures, allow_destroy: true

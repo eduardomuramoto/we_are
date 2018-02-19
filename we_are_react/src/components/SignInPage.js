@@ -46,7 +46,7 @@ class SignInPage extends Component {
       <main
         className="SignInPage"
         style={{
-          padding: '0 20px'
+          padding: '0 30%'
         }}
       >
         <h2>Sign In</h2>
