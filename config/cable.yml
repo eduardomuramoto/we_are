@@ -1,10 +1,8 @@
-development:
-  adapter: async
-
-test:
-  adapter: async
-
 production:
-  adapter: redis
-  url: redis://weare.netlify.com:6379
-  channel_prefix: we_are_production
+  url: redis://localhost:6379
+
+local: &local
+  url: redis://localhost:6379
+
+development: *local
+test: *local
