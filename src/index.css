@@ -1,0 +1,73 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+main:not(.HomePage) {
+  margin-top: 70px;
+}
+
+.NavBar {
+  background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 768px){
+  .NavBar{
+    text-align: center;
+  }
+
+  .UserWithProfile{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+.chat-message{
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    padding: 10px 18px;
+    margin: 5px 100px 5px 20px;
+	  border-color: #cdecb0;
+}
+
+.chat-message-owner{
+    background-color: #6D757C;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #B2B2B2;
+    padding: 10px 18px;
+    margin: 5px 20px 5px 100px;
+	  border-color: #cdecb0;
+    color: whitesmoke;
+}
+
+.chat-logs{
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 1px;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 500px;
+  min-height: 500px;
+  width: 100%;
+  padding: 5px;
+}
+
+.HomeDiv{
+  opacity: .95;
+  z-index: 1;
+  position:absolute;
+  padding: 5% 5%;
+  width: 60%;
+  height: 60%;
+  margin: 10% 20%;
+  border-style: solid;
+  border-color: white;
+  border-width: 13px;
+}
+.HomeDiv > *{
+  font-family: 'Lucida Console', monospace;
+  color: white;
+}
