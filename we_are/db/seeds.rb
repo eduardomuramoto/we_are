@@ -11,6 +11,14 @@ jon_user = User.create(
   # is_admin: false
 )
 
+guest_user = User.create(
+  first_name: 'Guest',
+  last_name: 'User',
+  email: 'guest@gmail.com',
+  password: PASSWORD,
+  # is_admin: false
+)
+
 super_user = User.create(
   first_name: 'Eduardo',
   last_name: 'Muramoto',
@@ -35,5 +43,6 @@ users = User.all
 
 puts Cowsay.say("Created #{users.count} users", :tux)
 
+puts Cowsay.say("Login as guest with #{guest_user.email} and password of '#{PASSWORD}'!",:tux)
 puts Cowsay.say("Login as admin with #{super_user.email} and password of '#{PASSWORD}'!",:tux)
 puts Cowsay.say("Login as normal user with #{jon_user.email} and password of '#{PASSWORD}'!",:tux)

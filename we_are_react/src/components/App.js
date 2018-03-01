@@ -22,6 +22,8 @@ import {
   Switch
 } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import {Token} from '../requests/tokens';
+
 
 
 class App extends Component {
@@ -55,6 +57,21 @@ class App extends Component {
     })
   }
 
+  signGuest () {
+    const email = 'guest@gmail.com'
+    const password = 'supersecret'
+    Token
+      .create({email, password})
+      .then(data => {
+        if (!data.error) {
+          const {jwt} = data;
+          localStorage.setItem('jwt', jwt);
+          window.location.reload();
+          this.signIn;
+        }
+      })
+  }
+
   async updateUser () {
     const jwt = localStorage.getItem('jwt');
     const payload = jwtDecode(jwt);
@@ -77,7 +94,7 @@ class App extends Component {
       <Router >
         <div className="App">
           <Logo/>
-          <NavBar user={user} loading={loading} onSignOut={this.signOut} />
+          <NavBar user={user} loading={loading} onSignOut={this.signOut} onSignGuest={this.signGuest} />
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/sign_up" component={SignUpPage} />
