@@ -31,7 +31,7 @@ class NavBar extends Component {
   }
 
 render() {
-  const {user,loading, onSignOut = () => {}} = this.props;
+  const {user,loading, onSignOut = () => {},onSignGuest = () => {}} = this.props;
   if (loading) {
     return (
       <main
@@ -111,6 +111,9 @@ render() {
                   <Nav className="ml-auto" navbar>
                     <NavItem>
                       <Link to="/sign_in"><NavLink style={{color:"black"}}>Sign In</NavLink></Link>
+                    </NavItem>
+                    <NavItem>
+                      <Link to="/" onClick={onSignGuest}><NavLink style={{color:"black"}}>Sign In As Guest</NavLink></Link>
                     </NavItem>
                     <NavItem>
                       <Link to="/sign_up"><NavLink style={{color:"black"}}>Sign Up</NavLink></Link>
